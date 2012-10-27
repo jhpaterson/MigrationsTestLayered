@@ -1,0 +1,58 @@
+
+
+Tested migrations as follows:
+
+Ran application with initial model (Blog class) - database created by Code-First
+
+Added Url property in Blog class
+
+Enabled migrations, which created a migration based on the current state of the database. 
+
+Added a new named migration which picks up the new state of the model. 
+
+Ran Update-Database command, which applied all migrations and runs the Seed method - empty at this point. 
+
+Added some code in the Seed method to add some new Blog objects to the context, 
+
+Ran Update-Database again. There were no new migrations to run, but the Seed method was run.
+
+Now database has Blogs table with Url field, populated with seed data.
+
+
+
+Package Manager Console dialogue was as follows:
+
+PM> Enable-Migrations
+
+Checking if the context targets an existing database...
+
+Detected database created with a database initializer. Scaffolded migration '201210261549085_InitialCreate' corresponding to existing database. To use an automatic migration instead, delete the Migrations folder and re-run Enable-Migrations specifying the -EnableAutomaticMigrations parameter.
+
+Code First Migrations enabled for project MigrationsTestLayered.Data.EF.
+
+PM> Add-Migration AddUrl
+
+Scaffolding migration 'AddUrl'.
+
+The Designer Code for this migration file includes a snapshot of your current Code First model. This snapshot is used to calculate the changes to your model when you scaffold the next migration. If you make additional changes to your model that you want to include in this migration, then you can re-scaffold it by running 'Add-Migration 201210271407037_AddUrl' again.
+
+PM> Update-Database
+
+Specify the '-Verbose' flag to view the SQL statements being applied to the target database.
+
+Applying code-based migrations: [201210271407037_AddUrl].
+
+Applying code-based migration: 201210271407037_AddUrl.
+
+Running Seed method.
+
+PM> Update-Database
+
+Specify the '-Verbose' flag to view the SQL statements being applied to the target database.
+
+No pending code-based migrations.
+
+Running Seed method.
+
+PM> 
+

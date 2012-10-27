@@ -1,0 +1,23 @@
+﻿@using MigrationsTestLayered.Domain
+@model IEnumerable<Blog>
+
+@{
+    ViewBag.Title = "Home Page";
+}
+@section featured {
+    <section class="featured">
+        <div class="content-wrapper">
+            <hgroup class="title">
+                <h1>@ViewBag.Title.</h1>
+                <h2>@ViewBag.Message</h2>
+            </hgroup>
+        </div>
+    </section>
+}
+<h3>Blogs</h3>
+<ul>
+@foreach(Blog blog in Model){
+    <li>@blog.Name</li>
+}
+</ul>
+    
